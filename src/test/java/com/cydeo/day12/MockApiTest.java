@@ -27,4 +27,19 @@ public class MockApiTest {
 
     }
 
+    @Test
+    public void test2(){
+        given()
+                .baseUri("https://982f0464-c81a-4171-8fc5-0fca112bd77a.mock.pstmn.io")
+                .accept(ContentType.JSON)
+        .when()
+                .get("/employees")
+        .then()
+                .statusCode(401)
+                .and()
+                .body("batch",endsWith("25"));
+
+
+    }
+
 }
